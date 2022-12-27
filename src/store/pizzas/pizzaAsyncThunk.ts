@@ -1,12 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { ErrorType, PizzaParams, PizzaReturnType } from "./types"
+import { RootState } from "store/store"
+import { ErrorType, PizzaReturnType } from "./types"
 
-export const fetchPizzas = createAsyncThunk<PizzaReturnType, PizzaParams, { rejectValue: ErrorType }>(
+export const fetchPizzas = createAsyncThunk<PizzaReturnType, void, { rejectValue: ErrorType, state: RootState}>(
     'pizzas/fetchPizzasStatus',
-    async (obj, { rejectWithValue }) => {
+    async (_, { rejectWithValue, getState }) => {
         try {
-            const { category, search, sortBy, order, page } = obj
+            const { filter } = getState() 
+            const category = filter.categoryID > 0 ? String(filter.categoryID) : null
+            const search = filter.searchValue
+            const sortBy = filter.sortNameObj.sortProperty
+            const order = filter.sortNameObj.order
+            const page = String(filter.currentPage)
             const { data } = await axios.get<PizzaReturnType>(`https://62b98129ff109cd1dc93c9b5.mockapi.io/pizzas`, {
                 params: {
                     page,

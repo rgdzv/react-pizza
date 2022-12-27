@@ -88,7 +88,7 @@ module.exports = {
         new ForkTsCheckerWebpackPlugin(),
         new FaviconsWebpackPlugin({
             logo: path.resolve(__dirname, './src/assets/images/favicon.png'),
-            prefix: './assets/images',
+            prefix: './assets/images/',
             inject: true,
             mode: 'light'
         }),

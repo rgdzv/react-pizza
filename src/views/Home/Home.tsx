@@ -36,20 +36,8 @@ const Home: FC = () => {
 
     const loadedPizzas = loading === 'on' ? skeletons : pizzaList
 
-    const getPizzas = async () => {
-        const category = categoryID > 0 ? String(categoryID) : null
-        const search = searchValue
-        const sortBy = sortNameObj.sortProperty
-        const order = sortNameObj.order
-        const page = String(currentPage)
-
-        dispatch(
-            fetchPizzas({ category, search, sortBy, order, page })
-        )
-    }
-        
     useEffect(() => {
-        getPizzas()
+        dispatch(fetchPizzas())
     }, [categoryID, searchValue, sortNameObj, currentPage])
 
     if (error) {
