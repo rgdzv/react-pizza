@@ -39,13 +39,13 @@ const BasketPizza: FC<BasketPizzaProps> = ({ item }) => {
                 </div>
             </div>
             <div className={styles.basket__pizza__number}>
-                <Icon name="#minus" onClick={handleMinusPizza} disabled={disabledButton}/>
+                <Icon name="#minus" onClick={handleMinusPizza} disabled={disabledButton} title="Убрать"/>
                 <span>{item.count}</span>
-                <Icon name="#plus" onClick={handlePlusPizza}/>
+                <Icon name="#plus" onClick={handlePlusPizza} title="Добавить"/>
             </div>
             <div className={styles.basket__pizza__price}>{price}</div>
             <div className={styles.basket__pizza__remove}>
-                <Icon name="#remove" onClick={handleremovePizza}/>
+                <Icon name="#remove" onClick={handleremovePizza} title="Удалить"/>
             </div>
         </div>
     )

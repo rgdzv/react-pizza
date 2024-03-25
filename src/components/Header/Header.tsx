@@ -29,7 +29,7 @@ const Header: FC = () => {
                     <span>{fullPrice}</span>
                     <div className={styles.basket__line}></div>
                     <div className={styles.basket__count}>
-                        <img src={cart} alt="cart" />
+                        <img src={cart} alt="Корзина" />
                         <span>{totalNumber}</span>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ const Header: FC = () => {
         <div className={styles.header}>
             <Link to="/">
                 <div className={styles.logo}>
-                    <img src={logo} alt="logo" />
+                    <img src={logo} alt="Логотип" />
                     <div className={styles.logo__sign}>
                         <h3>REACT PIZZA</h3>
                         <span>самая вкусная пицца во вселенной</span>

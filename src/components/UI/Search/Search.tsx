@@ -35,6 +35,7 @@ const Search: FC = () => {
     return (
         <div className={styles.search}>
             <svg className={styles.search__img}>
+                <title>Поиск</title>
                 <use xlinkHref={`${sprite}#search`}/>
             </svg>
             <input 

@@ -9,6 +9,7 @@ import { fetchPizzas } from 'store/pizzas/pizzaAsyncThunk'
 import { useAppDispatch, useAppSelector } from 'store/store'
 import styles from './Home.module.scss'
 import PizzaSkeleton from '@components/Pizza/PizzaSkeleton/PizzaSkeleton'
+import { pizzaImagesMiddle } from '@utils/pizzasImages'
 
 const Home: FC = () => {
 
@@ -28,9 +29,14 @@ const Home: FC = () => {
         dispatch(setCurrentPage(page))
     }
 
-    const pizzaList = pizzas?.map(item => (
-        <PizzaCard key={item.id} item={item}/>
-    ))
+
+    const pizzaList = pizzas?.map(item => {
+        const pizzaImg = pizzaImagesMiddle[item.title]
+
+        return (
+            <PizzaCard key={item.id} item={item} pizzaImg={pizzaImg}/>
+        )
+    })
 
     const skeletons = [...new Array(4)].map((_, index) => <PizzaSkeleton key={index}/>)
 

@@ -10,9 +10,10 @@ import { findBasketItemById } from 'store/basket/selectors'
 
 interface PizzaProps {
     item: Pizza
+    pizzaImg: string
 }
 
-const PizzaCard: FC<PizzaProps> = ({ item }) => {
+const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
 
     const [activeType, setActiveType] = useState(0)
     const [activeSize, setActiveSize] = useState(0)
@@ -61,7 +62,7 @@ const PizzaCard: FC<PizzaProps> = ({ item }) => {
 
     return (
         <div className={styles.pizza}>
-            <img src={item.imageUrl} alt={item.imageUrl} />
+            <img src={pizzaImg} alt={item.title} />
             <div className={styles.pizza__name}>{item.title}</div>
             <div className={styles.pizza__rating}>Рейтинг: {item.rating}</div>
             <div className={styles.pizza__info}>

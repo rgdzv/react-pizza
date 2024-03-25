@@ -17,7 +17,7 @@ const EmptyResult: FC<EmptyResultProps> = ({ title }) => {
     const image = emptyInfo[title].img 
         ?
             <div className={styles.picture}>
-                <img src={emptyInfo[title].img} alt={emptyInfo[title].img}/>
+                <img src={emptyInfo[title].img} alt="Пустая корзина"/>
             </div>
         :   
             null
@@ -45,7 +45,7 @@ const EmptyResult: FC<EmptyResultProps> = ({ title }) => {
             <div className={styles.empty__content}>
                 <div className={styles.title}>
                     <h2>{title}</h2>
-                    <img src={smile} alt="smile" />
+                    <img src={smile} alt="Смайл" />
                 </div>
                 <div className={styles.subtitle}>
                     <span>{spanTop}</span>

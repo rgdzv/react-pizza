@@ -32,11 +32,12 @@ const Basket: FC = () => {
                 <div className={styles.basket__container__content}>
                     <div className={styles.header}>
                         <div className={styles.header__left}>
-                            <img src={bigcart} alt="bigcart" />
+                            <img src={bigcart} alt="Корзина" />
                             <h3>Корзина</h3>
                         </div>
                         <div className={styles.header__right} onClick={handleRemoveAll}>
                             <svg>
+                                <title>Очистить корзину</title>
                                 <use xlinkHref={`${sprite}#trash`}/>
                             </svg>
                             <span>Очистить корзину</span>

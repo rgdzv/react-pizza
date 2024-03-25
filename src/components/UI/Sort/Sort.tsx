@@ -34,11 +34,13 @@ const Sort: FC<SortProps> = ({ sortNameObj }) => {
             <div className={styles.buttons}>
                 <div className={styles.picture} onClick={() => handleSelectSortName({...sortName, order: 'desc'})}>
                     <svg>
+                        <title>Стрелка</title>
                         <use xlinkHref={`${sprite}#arrow-up`}/>
                     </svg>
                 </div>
                 <div className={styles.picture} onClick={() => handleSelectSortName({...sortName, order: 'asc'})}>
                     <svg>
+                        <title>Стрелка</title>
                         <use xlinkHref={`${sprite}#arrow-up`}/>
                     </svg>
                 </div>
