@@ -57,7 +57,7 @@ const Basket: FC = () => {
                         </div>
                         <div className={styles.bottom}>
                             <Link to="/">
-                                <Button>Вернуться назад</Button>
+                                <Button className='return'>Вернуться назад</Button>
                             </Link>
                             <Button>Оплатить сейчас</Button>
                         </div>

@@ -20,7 +20,6 @@ export interface Pizza {
     id: string;
     title: string;
     price: PizzaPrice;
-    imageUrl: string;
     sizes: number[];
     types: number[];
     rating: number

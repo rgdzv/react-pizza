@@ -70,7 +70,6 @@ const Home: FC = () => {
                 itemsLength={count}
             />
         </div>
-        
     )
 }
 

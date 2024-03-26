@@ -34,13 +34,13 @@ const Sort: FC<SortProps> = ({ sortNameObj }) => {
             <div className={styles.buttons}>
                 <div className={styles.picture} onClick={() => handleSelectSortName({...sortName, order: 'desc'})}>
                     <svg>
-                        <title>Стрелка</title>
+                        <title>По убыванию</title>
                         <use xlinkHref={`${sprite}#arrow-up`}/>
                     </svg>
                 </div>
                 <div className={styles.picture} onClick={() => handleSelectSortName({...sortName, order: 'asc'})}>
                     <svg>
-                        <title>Стрелка</title>
+                        <title>По возрастанию</title>
                         <use xlinkHref={`${sprite}#arrow-up`}/>
                     </svg>
                 </div>
@@ -73,7 +73,7 @@ const Sort: FC<SortProps> = ({ sortNameObj }) => {
     return (
         <div className={styles.sort} ref={sortRef}>
             <div className={styles.sort__label}>
-                <img src={arrow} alt="arrow" style={{transform: !opened ? 'rotate(0deg)' : ''}}/>
+                <img src={arrow} alt="Сортировка"/>
                 <p>Сортировка по:</p>
                 <span onClick={handleOpened}>{sortNameObj.name}</span>
             </div>

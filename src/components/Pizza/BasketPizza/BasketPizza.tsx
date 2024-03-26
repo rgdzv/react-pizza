@@ -5,6 +5,7 @@ import { addPizzaToBasket, minusPizzaFromBasket, removePizzaFromBasket } from 's
 import { BasketItem } from 'store/basket/types'
 import { useAppDispatch } from 'store/store'
 import styles from './BasketPizza.module.scss'
+import { pizzaImagesMiddle } from '@utils/pizzasImages'
 
 interface BasketPizzaProps {
     item: BasketItem
@@ -28,11 +29,13 @@ const BasketPizza: FC<BasketPizzaProps> = ({ item }) => {
     }
 
     const disabledButton = item.count === 1
+
+    const imgSrc = pizzaImagesMiddle[item.title]
     
     return (
         <div className={styles.basket__section}>
             <div className={styles.basket__pizza}>
-                <img src={item.imageUrl} alt={item.imageUrl} />
+                <img src={imgSrc} alt={item.title} />
                 <div className={styles.basket__pizza__info}>
                     <h3>{item.title}</h3>
                     <span>{item.type}, {item.size} см</span>

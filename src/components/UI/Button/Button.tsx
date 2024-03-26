@@ -1,29 +1,27 @@
 import React, { FC } from 'react'
 import styles from './Button.module.scss'
+import { classNames } from '@utils/classNames'
 
-interface ButtonNames {
-    [key: string]: string
-}
-
-const buttonNames: ButtonNames = {
-    'Добавить': styles.button__add,
-    'Вернуться назад': styles.button__return
-}
+type ButtonClassNameType = 'add' | 'return' | 'category'
 
 interface ButtonProps {
-    children: string | undefined;
+    children?: string;
     onClick?: () => void;
-    addedCount?: number
+    addedCount?: number,
+    className?: ButtonClassNameType
+    active?: boolean
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, addedCount }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, addedCount, className, active }) => {
 
-    const buttonStyle = children && buttonNames[children] 
     const numberOfSpecificPizzas = (addedCount ? addedCount : 0) > 0 && <i>{addedCount}</i>
+    const buttonClassName = classNames(styles.button, {
+        [styles.active]: active
+    }, [styles[className as ButtonClassNameType]])
     
     return (
         <button
-            className={buttonStyle || styles.button}
+            className={buttonClassName}
             onClick={onClick}
         >
             <span>{children}</span>

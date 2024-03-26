@@ -45,16 +45,15 @@ const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
     const price = finalPrice(specificPizzaPrice)
     
     const handleAddPizzaToBasket = () => {
-        const { id, title, price, imageUrl, sizes } = item
+        const { id, title, price, sizes } = item
 
         const pizza = {
             id,
             title,
             price: price[typeNames[activeType]][sizes[activeSize]],
-            imageUrl,
             type: typeNames[activeType],
             size: sizes[activeSize],
-            count: 0,
+            count: 0
         }
 
         dispatch(addPizzaToBasket(pizza))
@@ -75,7 +74,7 @@ const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
             </div>
             <div className={styles.pizza__footer}>
                 <div className={styles.pizza__footer__price}>от {price}</div>
-                <Button onClick={handleAddPizzaToBasket} addedCount={basketItem}>
+                <Button onClick={handleAddPizzaToBasket} addedCount={basketItem} className='add'>
                     Добавить
                 </Button>
             </div>
