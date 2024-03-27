@@ -1,6 +1,9 @@
 @use '../../../styles/variables' as *;
 
 .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 32px;
     height: 32px;
     background-color: #FFFFFF;
@@ -18,25 +21,26 @@
 
     &:disabled {
         border-color: $customGrey;
+
         svg {
-            fill:$customGrey;
+            fill: $customGrey;
         }
     }
 
     &:hover:enabled {
-        background-color: $customOrange;
+        background-color: darken($customOrange, 5%);
+
         svg {
             fill:#FFFFFF;
         }
     }
 
     &:active:enabled {
-        transform: translateY(2px);
+        background-color: darken($customOrange, 15%);
     }
 }
 
-.close {
-    composes: button;
+.remove {
     border-color: $customGrey;
 
     svg {
@@ -44,10 +48,10 @@
     }
 
     &:hover:enabled {
-        border: $customBlack;
-        background-color: $customBlack;
-        svg {
-            fill:#FFFFFF;
-        }
+        background-color: darken($customGrey, 5%);
+    }
+
+    &:active:enabled {
+        background-color: darken($customGrey, 15%);
     }
 }

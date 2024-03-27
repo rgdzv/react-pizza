@@ -29,7 +29,6 @@ const Home: FC = () => {
         dispatch(setCurrentPage(page))
     }
 
-
     const pizzaList = pizzas?.map(item => {
         const pizzaImg = pizzaImagesMiddle[item.title]
 

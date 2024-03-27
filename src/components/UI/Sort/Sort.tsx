@@ -1,84 +1,55 @@
-import React, { FC, useRef, useState, useEffect, memo } from 'react'
+import React, { FC, memo } from 'react'
 import styles from './Sort.module.scss'
 import arrow from '@images/arrow.png'
 import { sortNamesList } from '@utils/pizzaInfo'
 import { useAppDispatch } from 'store/store'
-import { setSortName } from 'store/filter/filterSlice'
 import { SortType } from 'store/filter/types'
-import sprite from '@images/sprite.svg'
+import { Popover } from '@headlessui/react'
+import Button from '@components/UI/Button/Button'
+import Icon from 'components/UI/Icon/Icon'
+import { setSortName } from 'store/filter/filterSlice'
 
 interface SortProps {
     sortNameObj: SortType
 }
 
 const Sort: FC<SortProps> = ({ sortNameObj }) => {
-    
-    const [opened, setOpened] = useState(false)
     const dispatch = useAppDispatch()
-    const sortRef = useRef<HTMLDivElement>(null)
-
-    const handleOpened = () => {
-        setOpened(!opened)
-    }
 
     const handleSelectSortName = (obj: SortType) => {
         dispatch(setSortName(obj))
-        setOpened(false)
     }
 
-    const sortNames = sortNamesList.map(sortName => (
-        <li 
-            key={sortName.name} 
-            className={sortNameObj.name === sortName.name ? styles.active : ''}
-        >
-            <div className={styles.buttons}>
-                <div className={styles.picture} onClick={() => handleSelectSortName({...sortName, order: 'desc'})}>
-                    <svg>
-                        <title>По убыванию</title>
-                        <use xlinkHref={`${sprite}#arrow-up`}/>
-                    </svg>
+    const sortNames = sortNamesList.map(sortName => {
+
+        return (
+            <li 
+                key={sortName.name} 
+                className={sortNameObj.name === sortName.name ? styles.active : ''}
+            >
+                <div className={styles.buttons}>
+                    <Icon name='#arrow-up' title='По возрастанию' onClick={() => handleSelectSortName({...sortName, order: 'asc'})}/>
+                    <Icon name='#arrow-down' title='По убыванию' onClick={() => handleSelectSortName({...sortName, order: 'desc'})}/>
                 </div>
-                <div className={styles.picture} onClick={() => handleSelectSortName({...sortName, order: 'asc'})}>
-                    <svg>
-                        <title>По возрастанию</title>
-                        <use xlinkHref={`${sprite}#arrow-up`}/>
-                    </svg>
-                </div>
-            </div>
-            <p>{sortName.name}</p>
-        </li>
-    ))
-
-    const modal = opened && 
-        <div className={styles.sort__popup}>
-            <ul>
-                {sortNames}
-            </ul>
-        </div>
-
-    useEffect(() => {
-        const handleClickOutside = (event: Event) => {
-            if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
-                setOpened(false)
-            }
-        }
-
-        document.body.addEventListener('click', handleClickOutside)
-
-        return () => {
-            document.body.removeEventListener('click', handleClickOutside)
-        }
-    }, [])
+                <p>{sortName.name}</p>
+            </li>
+        )
+    })
 
     return (
-        <div className={styles.sort} ref={sortRef}>
-            <div className={styles.sort__label}>
+        <Popover className={styles.sort}>
+            <Popover.Button as={Button} className='sort'>
                 <img src={arrow} alt="Сортировка"/>
-                <p>Сортировка по:</p>
-                <span onClick={handleOpened}>{sortNameObj.name}</span>
-            </div>
-            {modal}
-        </div>
+                <span>Сортировка по:</span>
+                <span>{sortNameObj.name}</span>
+            </Popover.Button>
+
+            <Popover.Panel className={styles.sort__popup}>
+                <ul>
+                    {sortNames}
+                </ul>
+            </Popover.Panel>
+        </Popover>
     )
 }
 

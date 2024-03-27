@@ -5,7 +5,6 @@
     border-radius: 30px;
     padding: 18px 30px;
     text-align: center;
-    cursor: pointer;
     border: 1px solid $customOrange;
     color: #ffffff;
     font-weight: 700;
@@ -14,11 +13,11 @@
     line-height: 1;
 
     &:hover {
-        background-color: darken($customOrange, 10%);
+        background-color: darken($customOrange, 5%);
     }
 
     &:active {
-        transform: translateY(2px);
+        background-color: darken($customOrange, 15%);
     }
 
     i {
@@ -41,13 +40,11 @@
 }
 
 .add {
-    composes: button;
     background-color: transparent;
     color: $customOrange;
     padding: 10px 20px;
 
     &:hover {
-        background-color: $customOrange;
         color: #ffffff;
 
         i {
@@ -58,18 +55,20 @@
 }
 
 .return {
-    composes: button;
     background-color: $customBlack;
     color: #ffffff;
     border: 1px solid $customBlack;
 
     &:hover {
-        background-color: lighten($customBlack, 10%);
+        background-color: darken($customBlack, 5%);
+    }
+
+    &:active {
+        background-color: darken($customBlack, 15%);
     }
 }
 
 .category {
-    composes: button;
     background-color: lighten($customGrey, 39%);
     padding: 13px 30px;
     color: $customBlack;
@@ -90,5 +89,44 @@
     &.active {
         background-color: $customBlack;
         color: #ffffff;
+    }
+}
+
+.sort {
+    display: flex;
+    align-items: center;
+    background: none;
+    padding: 0;
+    border: none;
+
+    img {
+        width: 10px;
+        height: 5px;
+        margin: 0px 7px 0px 0px;
+        transform: rotate(180deg);
+    }
+
+    span {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.015em;
+        color: $customBlack;
+        margin: 0px 7px 0px 0px;
+
+        &:last-child {
+            color: $customOrange;
+            font-weight: 400;
+        }
+    }
+
+    &:hover {
+        background: none;
+    }
+
+    &:active {
+        transform: none;
     }
 }

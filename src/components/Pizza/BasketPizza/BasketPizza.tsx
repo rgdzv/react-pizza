@@ -48,7 +48,7 @@ const BasketPizza: FC<BasketPizzaProps> = ({ item }) => {
             </div>
             <div className={styles.basket__pizza__price}>{price}</div>
             <div className={styles.basket__pizza__remove}>
-                <Icon name="#remove" onClick={handleremovePizza} title="Удалить"/>
+                <Icon name="#remove" className='remove' onClick={handleremovePizza} title="Удалить"/>
             </div>
         </div>
     )
