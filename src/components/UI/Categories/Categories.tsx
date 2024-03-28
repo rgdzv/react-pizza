@@ -20,7 +20,7 @@ const Categories: FC<CategoriesProps> = ({ handleChangeCategory, value }) => {
             <li 
                 key={category} 
             >
-                <Button onClick={onClick} className='category' active={active}>{category}</Button>
+                <Button onClick={onClick} className='category' categoryActive={active}>{category}</Button>
             </li>
         )
 })

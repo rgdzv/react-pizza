@@ -23,26 +23,28 @@ const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
     const types = item.types.map(type => (
         <li 
             key={type} 
-            onClick={() => setActiveType(type)}
-            className={activeType === type ? styles.active : ''}
         >
-            {typeNames[type]}
+            <Button onClick={() => setActiveType(type)} className='pizzaType' pizzaTypeActive={activeType === type}>
+                {typeNames[type]}
+            </Button>
         </li>
     ))
 
     const sizes = item.sizes.map((size, ind) => (
         <li 
             key={size}
-            onClick={() => setActiveSize(ind)}
-            className={activeSize === ind ? styles.active : ''}
         >
-            {size} см
+            <Button onClick={() => setActiveSize(ind)} className='pizzaSize' pizzaSizeActive={activeSize === ind}>
+                {`${size} см`}
+            </Button>
         </li>
     ))
 
     const specificPizzaPrice = item.price[typeNames[activeType]][item.sizes[activeSize]] 
 
     const price = finalPrice(specificPizzaPrice)
+
+    const amountOfAddedPizza = basketItem > 0 && <i>{basketItem}</i>
     
     const handleAddPizzaToBasket = () => {
         const { id, title, price, sizes } = item
@@ -60,11 +62,12 @@ const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
     }
 
     return (
-        <div className={styles.pizza}>
+        <div className={styles.pizzaCard}>
+            {amountOfAddedPizza}
             <img src={pizzaImg} alt={item.title} />
-            <div className={styles.pizza__name}>{item.title}</div>
-            <div className={styles.pizza__rating}>Рейтинг: {item.rating}</div>
-            <div className={styles.pizza__info}>
+            <div className={styles.pizzaCard__name}>{item.title}</div>
+            <div className={styles.pizzaCard__rating}>Рейтинг: {item.rating}</div>
+            <div className={styles.pizzaCard__info}>
                 <ul>
                     {types}
                 </ul>
@@ -72,9 +75,9 @@ const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
                     {sizes}
                 </ul>
             </div>
-            <div className={styles.pizza__footer}>
-                <div className={styles.pizza__footer__price}>от {price}</div>
-                <Button onClick={handleAddPizzaToBasket} addedCount={basketItem} className='add'>
+            <div className={styles.pizzaCard__footer}>
+                <div className={styles.pizzaCard__footer__price}>от {price}</div>
+                <Button onClick={handleAddPizzaToBasket} className='add'>
                     Добавить
                 </Button>
             </div>

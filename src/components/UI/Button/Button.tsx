@@ -2,23 +2,25 @@ import React, { FC } from 'react'
 import styles from './Button.module.scss'
 import { classNames } from '@utils/classNames'
 
-type ButtonClassNameType = 'add' | 'return' | 'category' | 'sort'
+type ButtonClassNameType = 'add' | 'return' | 'category' | 'sort' | 'pizzaType' | 'pizzaSize'
 
 interface ButtonProps {
     children?: string;
     onClick?: () => void;
-    addedCount?: number,
     className?: ButtonClassNameType
-    active?: boolean
+    categoryActive?: boolean
+    pizzaTypeActive?: boolean
+    pizzaSizeActive?: boolean
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, addedCount, className, active }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, className, categoryActive, pizzaTypeActive, pizzaSizeActive }) => {
 
-    const numberOfSpecificPizzas = (addedCount ? addedCount : 0) > 0 && <i>{addedCount}</i>
     const buttonClassName = classNames(
         styles.button, 
         {
-            [styles.active]: active
+            [styles.categoryActive]: categoryActive,
+            [styles.pizzaTypeActive]: pizzaTypeActive,
+            [styles.pizzaSizeActive]: pizzaSizeActive
         }, 
         [styles[className as ButtonClassNameType]]
     )
@@ -29,7 +31,6 @@ const Button: FC<ButtonProps> = ({ children, onClick, addedCount, className, act
             onClick={onClick}
         >
             {children}
-            {numberOfSpecificPizzas}
         </button>
     )
 }
