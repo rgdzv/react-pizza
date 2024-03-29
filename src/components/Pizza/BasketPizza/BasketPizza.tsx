@@ -37,7 +37,7 @@ const BasketPizza: FC<BasketPizzaProps> = ({ item }) => {
             <div className={styles.basket__pizza}>
                 <img src={imgSrc} alt={item.title} />
                 <div className={styles.basket__pizza__info}>
-                    <h3>{item.title}</h3>
+                    <p>{item.title}</p>
                     <span>{item.type}, {item.size} см</span>
                 </div>
             </div>
@@ -48,7 +48,7 @@ const BasketPizza: FC<BasketPizzaProps> = ({ item }) => {
             </div>
             <div className={styles.basket__pizza__price}>{price}</div>
             <div className={styles.basket__pizza__remove}>
-                <Icon name="#remove" className='remove' onClick={handleremovePizza} title="Удалить"/>
+                <Icon name="#remove" onClick={handleremovePizza} title="Удалить"/>
             </div>
         </div>
     )

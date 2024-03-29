@@ -1,6 +1,7 @@
 @use '../../../styles/variables' as *;
 
 .search {
+    place-self: center;
     position: relative;
     display: flex;
     align-items: center;

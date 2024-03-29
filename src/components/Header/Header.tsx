@@ -24,7 +24,7 @@ const Header: FC = () => {
     const showInfo = (location.pathname === '/' && !error) &&
         <>
             <Search/>
-            <Link to='basket' onClick={handleInputClear}>
+            <Link to='basket' onClick={handleInputClear} className={styles.basketLink}>
                 <div className={styles.basket}>
                     <span>{fullPrice}</span>
                     <div className={styles.basket__line}></div>
@@ -38,7 +38,7 @@ const Header: FC = () => {
 
     return (
         <div className={styles.header}>
-            <Link to="/">
+            <Link to="/" className={styles.logoLink}>
                 <div className={styles.logo}>
                     <img src={logo} alt="Логотип" />
                     <div className={styles.logo__sign}>

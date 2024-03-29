@@ -44,7 +44,7 @@ const PizzaCard: FC<PizzaProps> = ({ item, pizzaImg }) => {
 
     const price = finalPrice(specificPizzaPrice)
 
-    const amountOfAddedPizza = basketItem > 0 && <i>{basketItem}</i>
+    const amountOfAddedPizza = basketItem > 0 && <span>{basketItem}</span>
     
     const handleAddPizzaToBasket = () => {
         const { id, title, price, sizes } = item

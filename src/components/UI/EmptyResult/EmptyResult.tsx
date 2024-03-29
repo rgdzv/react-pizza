@@ -4,12 +4,14 @@ import smile from '@images/smile.jpg'
 import { Link } from 'react-router-dom'
 import Button from '@components/UI/Button/Button'
 import { emptyInfo } from '@utils/emptyInfo'
+import { useNavigate } from "react-router-dom"
 
 interface EmptyResultProps {
     title: string
 }
 
 const EmptyResult: FC<EmptyResultProps> = ({ title }) => {
+    const navigate = useNavigate()
 
     const spanTop = emptyInfo[title].spanTop
     const spanBottom = emptyInfo[title].spanBottom
@@ -28,6 +30,10 @@ const EmptyResult: FC<EmptyResultProps> = ({ title }) => {
         window.location.reload()
     }
 
+    const handleGoBack = () => {
+        navigate(-1)
+    }
+
     const button = title === 'Произошла ошибка'
         ? 
             <Button onClick={handleReload}>{buttonName}</Button>
@@ -36,9 +42,7 @@ const EmptyResult: FC<EmptyResultProps> = ({ title }) => {
         ?   
             null
         :
-            <Link to="/">
-                <Button>{buttonName}</Button>
-            </Link>
+            <Button onClick={handleGoBack}>{buttonName}</Button>
 
     return (
         <div className={styles.empty__container}>

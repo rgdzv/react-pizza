@@ -6,21 +6,23 @@
     align-items: center;
     width: 32px;
     height: 32px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 2px solid $customOrange;
     color: $customOrange;
     border-radius: 50%;
-    transition: background-color .2s linear;
+    transition: background-color 0.2s linear;
 
     svg {
         width: 10px;
         height: 10px;
         fill: $customOrange;
-        transition: fill .2s linear;
+        transition: fill 0.2s linear;
     }
 
     &:disabled {
+        opacity: 0.5;
         border-color: $customGrey;
+        cursor: auto;
 
         svg {
             fill: $customGrey;
@@ -31,27 +33,62 @@
         background-color: darken($customOrange, 5%);
 
         svg {
-            fill:#FFFFFF;
+            fill: #ffffff;
         }
     }
 
     &:active:enabled {
         background-color: darken($customOrange, 15%);
+
+        svg {
+            fill: #ffffff;
+        }
     }
 }
 
-.remove {
-    border-color: $customGrey;
+.trash {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
 
     svg {
+        width: 20px;
+        height: 20px;
         fill: $customGrey;
+        margin-right: 7px;
+    }
+
+    span {
+        font-family: 'Proxima Nova';
+        font-weight: 400;
+        font-size: 16px;
+        color: $customGrey;
+        transition: color 0.2s linear;
     }
 
     &:hover:enabled {
-        background-color: darken($customGrey, 5%);
+        background: none;
+
+        svg {
+            fill: darken($customGrey, 35%);
+        }
+
+        span {
+            color: darken($customGrey, 35%);
+        }
     }
 
     &:active:enabled {
-        background-color: darken($customGrey, 15%);
+        background: none;
+
+        svg {
+            fill: darken($customGrey, 35%);;
+        }
+
+        span {
+            fill: darken($customGrey, 35%);
+        }
     }
 }

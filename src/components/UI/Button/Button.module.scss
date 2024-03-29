@@ -7,6 +7,7 @@
     text-align: center;
     border: 1px solid $customOrange;
     color: #ffffff;
+    font-family: 'Proxima Nova';
     font-weight: 700;
     font-size: 16px;
     transition: background-color 0.2s linear, color 0.2s linear;
@@ -88,7 +89,6 @@
     }
 
     span {
-        font-family: 'Proxima Nova';
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
