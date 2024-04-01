@@ -38,9 +38,9 @@ const EmptyResult: FC<EmptyResultProps> = ({ title }) => {
         ? 
             <Button onClick={handleReload}>{buttonName}</Button>
         :
-            title === 'Таких пицц у нас нет'
+            title === 'Пиццы не найдены'
         ?   
-            null
+            <Button onClick={handleReload}>{buttonName}</Button>
         :
             <Button onClick={handleGoBack}>{buttonName}</Button>
 

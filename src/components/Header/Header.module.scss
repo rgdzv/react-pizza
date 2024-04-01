@@ -3,28 +3,26 @@
 .header {
     min-height: 135px;
     padding: 40px;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
-    // flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-bottom: 1px solid lighten($customGrey, 30%);
 
-    @media (max-width: 735px) {
-        justify-content: center;
+    @media (max-width: 1230px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto-fit);
+        row-gap: 10px;
     }
 
     .logoLink {
         place-self: center start;
 
+        @media (max-width: 1230px) {
+            place-self: center center;
+        }
+
         .logo {
             display: flex;
             align-items: center;
-    
-            @media (max-width: 1050px) {
-                margin: 0px 0px 10px 0px;
-            }
     
             img {
                 width: 38px;
@@ -55,6 +53,10 @@
 
     .basketLink {
         place-self: center end;
+
+        @media (max-width: 1230px) {
+            place-self: center center;
+        }
 
         .basket {
             display: flex;

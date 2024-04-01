@@ -5,7 +5,7 @@ export interface PizzaReturnType {
 
 export interface PizzasState {
     pizzas: Pizza[] | undefined;
-    loading: 'on' | 'off';
+    loading: boolean;
     error: null | string | undefined;
     count: number
 }

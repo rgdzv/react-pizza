@@ -1,6 +1,10 @@
 @use '../../../styles/variables' as *;
 
 .pagination {
+    @media (max-width:500px) {
+        display: flex;
+        justify-content: center;
+    }
 
     .page {
         display: inline-block;

@@ -37,7 +37,7 @@ const Header: FC = () => {
         </>
 
     return (
-        <div className={styles.header}>
+        <header className={styles.header}>
             <Link to="/" className={styles.logoLink}>
                 <div className={styles.logo}>
                     <img src={logo} alt="Логотип" />
@@ -48,7 +48,7 @@ const Header: FC = () => {
                 </div>
             </Link>
             {showInfo}
-        </div>
+        </header>
     )
 }
 
