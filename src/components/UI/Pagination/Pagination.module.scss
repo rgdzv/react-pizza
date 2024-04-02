@@ -1,19 +1,16 @@
 @use '../../../styles/variables' as *;
 
 .pagination {
-    @media (max-width:500px) {
-        display: flex;
+    display: flex;
+    column-gap: 10px;
+
+    @media (max-width: 500px) {
         justify-content: center;
     }
 
     .page {
         display: inline-block;
-        margin: 0px 10px 0px 0px;
         user-select: none;
-
-        &:last-child {
-            margin: 0px 0px 0px 0px;
-        }
 
         &__link {
             text-align: center;
@@ -25,9 +22,9 @@
             cursor: pointer;
             display: inline-block;
             color: $customOrange;
-            transition: background-color .2s linear, color .2s linear;
+            transition: background-color 0.2s linear, color 0.2s linear;
 
-            &:hover:not([aria-disabled=true]) {
+            &:hover:not([aria-disabled='true']) {
                 background-color: $customOrange;
                 color: #fff;
             }

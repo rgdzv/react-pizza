@@ -7,32 +7,31 @@
     border-bottom: 1px solid lighten($customGrey, 30%);
     margin: 0px 0px 30px 0px;
 
-    @media (max-width: 1350px) {
-        align-items: center;
-        flex-direction: column;
-
-        & > div:not(:last-child) {
-            margin: 0px 0px 10px 0px;
-        }
+    @media (max-width: 1230px) {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
     }
 
     .basket__pizza {
         place-self: center center;
         display: flex;
+        column-gap: 15px;
 
-        @media (max-width: 480px) {
+        @media (max-width: 500px) {
             flex-direction: column;
             align-items: center;
+            row-gap: 10px;
+            text-align: center;
         }
 
         img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            margin: 0px 15px 0px 0px;
 
-            @media (max-width: 480px) {
-                margin: 0px 0px 0px 0px;
+            @media (max-width: 500px) {
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -40,8 +39,9 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            row-gap: 5px;
 
-            @media (max-width: 480px) {
+            @media (max-width: 500px) {
                 align-items: center;
             }
 
@@ -50,7 +50,6 @@
                 font-size: 22px;
                 letter-spacing: 0.01em;
                 color: $customBlack;
-                margin: 0px 0px 5px 0px;
             }
 
             span {
@@ -66,6 +65,10 @@
         place-self: center end;
         display: flex;
         align-items: center;
+
+        @media (max-width: 1230px) {
+            place-self: center center;
+        }
 
         span {
             font-weight: 700;
@@ -83,11 +86,19 @@
         font-size: 22px;
         letter-spacing: 0.01em;
         color: $customBlack;
+
+        @media (max-width: 1230px) {
+            place-self: center center;
+        }
     }
 
     .basket__pizza__remove {
         place-self: center end;
         display: flex;
         align-items: center;
+
+        @media (max-width: 1230px) {
+            place-self: center center;
+        }
     }
 }
