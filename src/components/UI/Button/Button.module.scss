@@ -86,11 +86,19 @@
     padding: 0;
     border: none;
 
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
+
     img {
         width: 10px;
         height: 5px;
         margin: 0px 7px 0px 0px;
         transform: rotate(180deg);
+
+        @media (max-width: 500px) {
+            display: none;
+        }
     }
 
     span {

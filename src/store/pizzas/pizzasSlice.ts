@@ -16,7 +16,6 @@ const pizzasSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchPizzas.pending, (state) => {
             state.loading = true;
-            state.pizzas = [];
             state.error = null;
             state.count = 0
         });
@@ -27,8 +26,8 @@ const pizzasSlice = createSlice({
             state.loading = false
         });
         builder.addCase(fetchPizzas.rejected, (state, action) => {
-            state.pizzas = [];
-            state.count = 0
+            state.pizzas = undefined;
+            state.count = 0;
             if (action.payload) {
                 state.error = action.payload.message
             } else {

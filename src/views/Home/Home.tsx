@@ -48,7 +48,11 @@ const Home: FC = () => {
         return <EmptyResult title='Произошла ошибка' />
     }
 
-    if (!loading && (!pizzas || pizzas?.length === 0)) {
+    if (!loading && !pizzas) {
+        return <EmptyResult title='Пиццы не найдены' />
+    }
+
+    if (!loading && (Array.isArray(pizzas) && !pizzas.length)) {
         return <EmptyResult title='Пиццы не найдены' />
     }
 

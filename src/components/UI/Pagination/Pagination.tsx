@@ -3,14 +3,17 @@ import ReactPaginate from 'react-paginate'
 import styles from './Pagination.module.scss'
 
 interface PaginationProps {
-    handleChangePage: (page: number) => void;
-    currentPage: number;
+    handleChangePage: (page: number) => void
+    currentPage: number
     itemsLength: number
 }
 
-const Pagination: FC<PaginationProps> = ({ handleChangePage, currentPage, itemsLength }) => {
-
-    const numberOfPages = Math.ceil(itemsLength / 4)
+const Pagination: FC<PaginationProps> = ({
+    handleChangePage,
+    currentPage,
+    itemsLength,
+}) => {
+    const numberOfPages = Math.ceil(itemsLength / 4) || 3
 
     return (
         <ReactPaginate
@@ -25,12 +28,12 @@ const Pagination: FC<PaginationProps> = ({ handleChangePage, currentPage, itemsL
             nextLinkClassName={styles.page__link}
             activeLinkClassName={styles.active}
             disabledLinkClassName={styles.disabled}
-            breakLabel="..."
-            nextLabel=">"
+            breakLabel='...'
+            nextLabel='>'
             onPageChange={(event) => handleChangePage(event.selected + 1)}
             pageRangeDisplayed={3}
             pageCount={numberOfPages}
-            previousLabel="<"
+            previousLabel='<'
             forcePage={currentPage - 1}
         />
     )
