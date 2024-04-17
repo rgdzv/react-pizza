@@ -3,7 +3,7 @@ import { fetchPizzas } from "./pizzaAsyncThunk"
 import { PizzasState } from "./types"
 
 const initialState: PizzasState = {
-    pizzas: undefined,
+    pizzas: null,
     loading: false,
     error: null,
     count: 0
@@ -26,7 +26,7 @@ const pizzasSlice = createSlice({
             state.loading = false
         });
         builder.addCase(fetchPizzas.rejected, (state, action) => {
-            state.pizzas = undefined;
+            state.pizzas = null;
             state.count = 0;
             if (action.payload) {
                 state.error = action.payload.message

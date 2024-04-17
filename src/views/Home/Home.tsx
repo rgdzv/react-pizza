@@ -48,7 +48,7 @@ const Home: FC = () => {
         return <EmptyResult title='Произошла ошибка' />
     }
 
-    if (!loading && !pizzas) {
+    if (!loading && pizzas === undefined) {
         return <EmptyResult title='Пиццы не найдены' />
     }
 
